@@ -1,18 +1,12 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from eshop.models import Product
-from eshop.forms import ProductForm
 
-def product_delete_view(request):
-    form = ProductForm()
-    if request.method == 'GET':
-        context = {'form': form}
-        return render(request, 'add_product.html', context)
-    form = ProductForm(request.POST)
-    if not form.is_valid():
-        context = {
-            'form': form
-        }
-        return render(request, 'add_product.html', context)
-    product = Product.objects.create(**form.cleaned_data)
-    return redirect(reverse('product_detail', kwargs={'pk': product.pk}))
+
+def product_delete_view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'delete_confirm_page.html', context={'product': product})
+
+def confirm_delete_product_view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    product.delete()
+    return redirect('products')
