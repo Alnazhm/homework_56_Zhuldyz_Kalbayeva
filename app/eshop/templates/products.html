@@ -13,6 +13,16 @@
                   <p>{{product.category}}</p>
                   <p class="card-text"><b>Price: {{product.price}}$</b></p>
                 <p class="card-text" ><a style="text-decoration: underline; color: black;" href="{% url 'product_detail' product.pk %}">see more >>></a></p>
+                  <div class="container">
+                      <div class="row">
+                        <div class="col-sm">
+                           <a href="{% url 'product_edit' product.pk %}"> Edit product</a>
+                        </div>
+                        <div class="col-sm">
+                           <a href="{% url 'product_delete' product.pk %}"> Delete product</a>
+                        </div>
+                      </div>
+                    </div>
               </div>
             </div>
           </div>

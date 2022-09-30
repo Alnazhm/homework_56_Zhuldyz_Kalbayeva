@@ -14,12 +14,7 @@
         <a style="margin-right: 450px;font-weight: bold; color: black;" href="{% url 'products' %}">My market</a>
         <a style="margin-right: 30px;color: black;text-decoration: underline;" href="{% url 'products' %}">Products</a>
         <span>|</span>
-
         <a style="margin-left: 20px;color: black;text-decoration: underline;" href="{% url 'product_add' %}"> Add product</a>
-        <span>|</span>
-        <a style="margin-left: 20px;color: black;text-decoration: underline;" href="{% url 'product_edit' product.pk %}"> Edit product</a>
-        <span>|</span>
-        <a style="margin-left: 20px;color: black;text-decoration: underline;" href="{% url 'product_delete' product.pk %}"> Delete product</a>
         </div>
 </div>
  {% endblock %}

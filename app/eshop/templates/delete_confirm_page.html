@@ -3,9 +3,10 @@
 Confirm Delete
 {% endblock %}
 {% block content %}
-<h1>Are you sure delete this task?</h1>
-<p> Description {{ todo_task.description }}</p>
-<p> Description {{ todo_task.status }}</p>
+<h1>Are you sure delete this Product?</h1>
+<p> Product title {{ product.title }}</p>
+<p> Product description {{ product.description }}</p>
+<p> Product price {{ product.price }}</p>
 <form action="{% url 'confirm_delete' product.pk  %}" method="POST">
 {% csrf_token %}
     <input type="submit" value="Yes">

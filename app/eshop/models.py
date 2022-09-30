@@ -20,6 +20,8 @@ class Product(models.Model):
     balance = models.IntegerField(verbose_name="Остаток", validators=[MinValueValidator(0)])
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
     changed_at = models.DateTimeField(verbose_name='Дата изменения', auto_now=True)
+    is_deleted = models.BooleanField(verbose_name='Удалено', default=False, null=False)
+    deleted_at = models.DateTimeField(verbose_name='Дата удаления', null=True, default=None)
 
     def __str__(self):
         return f"{self.title} - {self.category} - {self.price} - {self.balance}"

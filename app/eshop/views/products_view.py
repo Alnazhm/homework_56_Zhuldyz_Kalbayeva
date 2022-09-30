@@ -3,7 +3,7 @@ from eshop.models import Product
 
 
 def products_view(request):
-    products = Product.objects.all()
+    products = Product.objects.filter(is_deleted=False)
     context = {
         'products': products
     }
